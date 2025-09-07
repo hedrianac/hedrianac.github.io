@@ -84,7 +84,7 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .skills{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;}
 .skill{grid-column:span 3;background:#1b1f2a;padding:40px;border-radius:12px;text-align:center;font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition:.3s;}
 .skill:hover{transform:translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,.65);}
-@media(max-width:1100px){.skill{grid-column:span 4;}}
+@media(max-width:1100px){.skill{grid-column:span:4;}}
 @media(max-width:720px){.skill{grid-column:span:6;}}
 
 /* TIMELINE */
@@ -102,8 +102,8 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .timeline-content h4{margin:0 0 12px;color:var(--muted);}
 .timeline-content ul{margin:0;padding-left:20px;line-height:1.6;}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
-.timeline-item.highlight {animation: pulse 0.8s ease-in-out;}
-@keyframes pulse {0% { transform: scale(1.05); } 50% { transform: scale(1.1); } 100% { transform: scale(1.05); }}
+.timeline-item.highlight{animation:pulse 0.8s ease-in-out;}
+@keyframes pulse{0%{transform:scale(1.05);}50%{transform:scale(1.1);}100%{transform:scale(1.05);}}
 @media(max-width:720px){
   .timeline::before{left:8px;}
   .timeline-item{margin:30px 0;}
@@ -150,32 +150,21 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-overlay"></div>
   <h2 class="section-title"><span>Experience</span></h2>
   <div class="grid">
-    <!-- Cognizant -->
-    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive" data-img="cognizant.jpg" data-desc="● Data management, archiving, and updating records\n● Technical support for sales of medical products\n● Administer client product support\n● Contact leads and prospective clients\nMarch 2022 - Present">
+    <!-- Experience cards -->
+    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive (Healthcare/Sales)" data-img="cognizant.jpg" data-desc="● Responsible for data management, archiving and updating of purchase order, emails, and customer information\n● Serves as a technical resource to support sales of a specific medical product or solution\n● Administering and helping to manage Client’s Product support for the customers who call in the support center\n● Contact leads and prospective clients to deliver their sales pitches\nMar 2022 - Present">
       <span class="role-badge">Senior Process Executive</span>
       <img class="media" src="cognizant.jpg" alt="Cognizant Office"/>
-      <div class="pad">
-        <h3>Cognizant Technology Solutions</h3>
-        <p>Handled data management, client support, and sales assistance.</p>
-      </div>
+      <div class="pad"><h3>Cognizant Technology Solutions</h3><p>Handled data management, client support, and sales assistance.</p></div>
     </article>
-    <!-- Concentrix -->
-    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="concentrix.jpg" data-desc="● Troubleshoot software, hardware, and connectivity issues\n● Escalation handling and installations\n● Systems support and maintenance\nJune 2021 - December 2021">
+    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="concentrix.jpg" data-desc="● Experience in Technical Care Support with proven ability to troubleshoot software, hardware, and connectivity issues remotely\n● Handles calls escalated by L1 support, configuration issues, troubleshooting and software installations on both computer and handheld devices\n● Performs moderately advanced technological systems support, maintenance, and testing\nJun 2021 - Dec 2021">
       <span class="role-badge">L2 Technical Advisor</span>
       <img class="media" src="concentrix.jpg" alt="Concentrix Office"/>
-      <div class="pad">
-        <h3>Concentrix Philippines</h3>
-        <p>Advanced troubleshooting and technical support.</p>
-      </div>
+      <div class="pad"><h3>Concentrix Philippines</h3><p>Advanced troubleshooting and technical support.</p></div>
     </article>
-    <!-- 24/7.ai -->
-    <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="247.jpg" data-desc="● Coach and train agents\n● Provide knowledge and resources\n● Systems support, maintenance, and testing\n● Data management and archiving\nSeptember 2018 - May 2021">
+    <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="247.jpg" data-desc="● Responsible for coaching and training agents on improving Customer Interaction and offering advisors guidance\n● Provides knowledge, resources and information to support agents\n● Performs moderately advanced technological systems support, maintenance, and testing\n● Responsible for data management, archiving and updating of purchase order, emails, and customer information\nSep 2018 - May 2021">
       <span class="role-badge">Team Leader / SME</span>
       <img class="media" src="247.jpg" alt="24/7.ai Office"/>
-      <div class="pad">
-        <h3>24/7.ai Philippines</h3>
-        <p>Team leadership and support management.</p>
-      </div>
+      <div class="pad"><h3>24/7.ai Philippines</h3><p>Team leadership and support management.</p></div>
     </article>
   </div>
 </section>
@@ -185,22 +174,17 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-overlay"></div>
   <h2 class="section-title"><span>Education</span></h2>
   <div class="grid">
-    <article class="card large" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="tup.jpeg" data-desc="● Electronics Engineering Technology (2015–2018)\n● Coursework in circuits, communications, and applied computing\nMay 2015 - July 2018">
+    <article class="card large" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="tup.jpeg" data-desc="● Electronics Engineering Technology (2015–2018)\n● Coursework in circuits, communications, and applied computing\nMay 2015 - Jul 2018">
       <span class="role-badge">Electronics Eng'g Tech</span>
       <img class="media" src="tup.jpeg" alt="TUP University"/>
-      <div class="pad">
-        <h3>Technological University of the Philippines</h3>
-        <p>Electronics Engineering Technology · 2015–2018</p>
-      </div>
+      <div class="pad"><h3>Technological University of the Philippines</h3><p>Electronics Engineering Technology · 2015–2018</p></div>
     </article>
   </div>
 </section>
 
 <section id="timeline">
   <h2 class="section-title"><span>Timeline</span></h2>
-  <div class="timeline">
-    <!-- Items dynamically highlight on card click -->
-  </div>
+  <div class="timeline"></div>
 </section>
 
 <section id="skills">
@@ -237,32 +221,79 @@ footer a{color:var(--accent);text-decoration:none;}
 </div>
 
 <script>
-// MODAL FUNCTIONALITY
+// MODAL
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
 const modalRole = document.getElementById('modalRole');
 const modalDesc = document.getElementById('modalDesc');
+const timelineContainer = document.querySelector('#timeline .timeline');
 
-document.querySelectorAll('.card, .skill').forEach(el => {
-  el.addEventListener('click', () => {
+// CREATE TIMELINE DYNAMICALLY
+document.querySelectorAll('.card').forEach(card => {
+  const timelineItem = document.createElement('div');
+  timelineItem.classList.add('timeline-item');
+
+  // Extract date from description
+  let dateMatch = card.dataset.desc.match(/([A-Za-z]{3,}\s\d{4})\s*-\s*([A-Za-z]{3,}\s\d{4}|PRESENT)/);
+  let dateText = dateMatch ? dateMatch[0] : '';
+
+  const dateDiv = document.createElement('div');
+  dateDiv.classList.add('timeline-date');
+  dateDiv.textContent = dateText;
+
+  const contentDiv = document.createElement('div');
+  contentDiv.classList.add('timeline-content');
+  const h3 = document.createElement('h3'); h3.textContent = card.dataset.title;
+  const h4 = document.createElement('h4'); h4.textContent = card.dataset.role;
+  const ul = document.createElement('ul');
+  card.dataset.desc.split(/\n|●/).forEach(line => {
+    if(line.trim() === '' || line.includes(dateText)) return;
+    const li = document.createElement('li'); li.textContent = line.trim();
+    ul.appendChild(li);
+  });
+  contentDiv.appendChild(h3); contentDiv.appendChild(h4); contentDiv.appendChild(ul);
+  timelineItem.appendChild(dateDiv); timelineItem.appendChild(contentDiv);
+  timelineContainer.appendChild(timelineItem);
+});
+
+// HIGHLIGHT TIMELINE ITEM
+function highlightTimeline(title){
+  document.querySelectorAll('.timeline-item').forEach(item=>{
+    const itemTitle = item.querySelector('h3').textContent.trim().toLowerCase();
+    if(itemTitle === title.trim().toLowerCase()){
+      item.style.transform='scale(1.05)';
+      item.style.boxShadow='0 20px 60px rgba(0,255,200,.6)';
+      item.scrollIntoView({behavior:'smooth', block:'center'});
+      item.classList.add('highlight');
+    } else {
+      item.style.transform='scale(1)';
+      item.style.boxShadow='var(--shadow)';
+      item.classList.remove('highlight');
+    }
+  });
+}
+
+// MODAL CLICK EVENTS
+document.querySelectorAll('.card, .skill').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    highlightTimeline(el.dataset.title || '');
     modalImg.src = el.dataset.img || '';
     modalTitle.textContent = el.dataset.title || '';
     modalRole.textContent = el.dataset.role || '';
-    modalDesc.innerHTML = '';
+    modalDesc.innerHTML='';
     if(el.dataset.desc){
-      el.dataset.desc.split(/\n|●/).forEach(line => {
+      el.dataset.desc.split(/\n|●/).forEach(line=>{
         if(line.trim()==='') return;
         const li = document.createElement('li'); li.textContent=line.trim();
         modalDesc.appendChild(li);
       });
     }
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    modal.classList.add('open'); document.body.style.overflow='hidden';
   });
 });
 
-modal.addEventListener('click', e => {
+modal.addEventListener('click', e=>{
   if(e.target===modal){ modal.classList.remove('open'); document.body.style.overflow=''; }
 });
 </script>
