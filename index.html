@@ -96,6 +96,14 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .timeline-content h4{margin:0 0 12px;color:var(--muted);}
 .timeline-content ul{margin:0;padding-left:20px;line-height:1.6;}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+.timeline-item.highlight {
+  animation: pulse 0.8s ease-in-out;
+}
+@keyframes pulse {
+  0% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
+}
 @media(max-width:720px){
   .timeline::before{left:8px;}
   .timeline-item{margin:30px 0;}
@@ -273,56 +281,62 @@ footer a{color:var(--accent);text-decoration:none;}
 </div>
 
 <script>
-const modal=document.getElementById('modal');
-const modalImg=document.getElementById('modalImg');
-const modalTitle=document.getElementById('modalTitle');
-const modalRole=document.getElementById('modalRole');
-const modalDesc=document.getElementById('modalDesc');
-const modalCard=document.getElementById('modalCard');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalRole = document.getElementById('modalRole');
+const modalDesc = document.getElementById('modalDesc');
+const modalCard = document.getElementById('modalCard');
 
 const timelineItems = document.querySelectorAll('.timeline-item');
 
 function highlightTimeline(title){
-  timelineItems.forEach(item=>{
-    const itemTitle = item.querySelector('h3').textContent.trim();
-    if(itemTitle === title){
-      item.style.transform='scale(1.05)';
-      item.style.boxShadow='0 20px 60px rgba(0,255,200,.6)';
-      item.style.borderLeft='4px solid var(--accent-2)';
-      item.scrollIntoView({behavior:'smooth',block:'center'});
+  timelineItems.forEach(item => {
+    const itemTitle = item.querySelector('h3').textContent.trim().toLowerCase();
+    if(itemTitle === title.trim().toLowerCase()){
+      item.style.transform = 'scale(1.05)';
+      item.style.boxShadow = '0 20px 60px rgba(0,255,200,.6)';
+      item.style.borderLeft = '4px solid var(--accent-2)';
+      item.scrollIntoView({behavior:'smooth', block:'center'});
+      item.classList.add('highlight');
     } else {
-      item.style.transform='scale(1)';
-      item.style.boxShadow='var(--shadow)';
-      item.style.borderLeft='none';
+      item.style.transform = 'scale(1)';
+      item.style.boxShadow = 'var(--shadow)';
+      item.style.borderLeft = 'none';
+      item.classList.remove('highlight');
     }
   });
 }
 
-document.querySelectorAll('.card, .skill').forEach(el=>{
-  el.addEventListener('click',()=>{
+document.querySelectorAll('.card, .skill').forEach(el => {
+  el.addEventListener('click', () => {
     const title = el.dataset.title || '';
     highlightTimeline(title);
 
     modalImg.src = el.dataset.img || '';
     modalTitle.textContent = el.dataset.title || '';
     modalRole.textContent = el.dataset.role || '';
-    modalDesc.innerHTML='';
+
+    modalDesc.innerHTML = '';
+
     if(el.dataset.desc){
-      el.dataset.desc.split('\n').forEach(line=>{
-        const li=document.createElement('li');
-        li.textContent=line.replace(/^●\s*/,'');
+      el.dataset.desc.split(/\\n|●/).forEach(line => {
+        if(line.trim() === '') return;
+        const li = document.createElement('li');
+        li.textContent = line.trim();
         modalDesc.appendChild(li);
       });
     }
+
     modal.classList.add('open');
-    document.body.style.overflow='hidden';
+    document.body.style.overflow = 'hidden';
   });
 });
 
-modal.addEventListener('click', e=>{
-  if(e.target===modal){
+modal.addEventListener('click', e => {
+  if(e.target === modal){
     modal.classList.remove('open');
-    document.body.style.overflow='';
+    document.body.style.overflow = '';
   }
 });
 </script>
