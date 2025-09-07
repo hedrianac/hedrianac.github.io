@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Christian Kyle S. Hedriana — Portfolio Resume</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --panel:#10131a; --ink:#e8eaed; --muted:#b7b9be;
+      --accent:#56ccf2; --accent-2:#34d399; --card:#111318;
+      --shadow:0 10px 40px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: 'Segoe UI', Roboto, Inter, system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--ink); scroll-behavior:smooth; font-size:20px;}
+
+    /* ── NAV ───────────────────────────────────────────────────────────── */
+    nav{position:fixed; inset:0 auto auto 0; width:100%; background:#111; display:flex; justify-content:center; gap:40px; padding:20px; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,.7); font-weight:600}
+    nav a{color:var(--ink); text-decoration:none; transition:.25s}
+    nav a:hover{color:var(--accent)}
+
+    /* ── HERO ─────────────────────────────────────────────────────────── */
+    header.hero{min-height:100vh; display:grid; place-items:center; text-align:center; padding:140px 20px 80px; position:relative; overflow:hidden}
+    header.hero::before{content:""; position:absolute; inset:0; background:linear-gradient(270deg,#0f2027,#203a43,#2c5364); background-size:600% 600%; animation:gradientBG 16s ease infinite; z-index:-2}
+    header.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(transparent 40%, rgba(0,0,0,.6)); z-index:-1}
+    @keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    .hero-wrap{display:flex; flex-direction:column; align-items:center; gap:18px}
+    .avatar{width:280px; height:280px; border-radius:50%; object-fit:cover; border:7px solid var(--accent); box-shadow:0 0 35px rgba(86,204,242,.9); opacity:0; transform:translateY(30px); animation:fadeUp 1.2s ease forwards}
+    h1.name{font-size:86px; line-height:.95; margin:8px 0 0; background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; color:transparent; opacity:0; transform:translateY(30px); animation:fadeUp 1.2s ease .25s forwards}
+    @media (max-width:720px){h1.name{font-size:52px}.avatar{width:200px;height:200px}}
+
+    .contact-links{margin-top:6px; font-size:22px}
+    .contact-links a{color:var(--accent); text-decoration:none; margin:0 10px; font-weight:700; animation:glow 2s infinite alternate}
+    .contact-links a:hover{color:var(--accent-2)}
+    @keyframes glow{from{text-shadow:0 0 8px var(--accent)} to{text-shadow:0 0 18px var(--accent-2)}}
+
+    .btns{display:flex; gap:18px; margin-top:28px; flex-wrap:wrap; justify-content:center}
+    .btn{display:inline-block; padding:18px 38px; border-radius:999px; background:var(--accent); color:#111; text-decoration:none; font-weight:800; letter-spacing:.3px; box-shadow:0 0 14px rgba(86,204,242,.6); transition:.25s; animation:glowBtn 2s infinite alternate}
+    .btn:hover{background:var(--accent-2)}
+    @keyframes glowBtn{from{box-shadow:0 0 10px var(--accent)} to{box-shadow:0 0 28px var(--accent-2)}}
+
+    .scroll-down{position:absolute; bottom:24px; left:50%; transform:translateX(-50%); font-size:36px; opacity:.9; animation:bounce 2s infinite}
+    @keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0)}40%{transform:translate(-50%,-14px)}60%{transform:translate(-50%,-7px)}}
+
+    /* ── SECTION WRAPPER with PARALLAX BG ─────────────────────────────── */
+    section{position:relative; padding:120px 26px; max-width:1600px; margin:0 auto;}
+    .section-bg{position:absolute; inset:0; z-index:-2; background-position:center; background-size:cover; transform:translateZ(0);}
+    .section-overlay{position:absolute; inset:0; background:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)); z-index:-1}
+    .parallax{will-change:transform}
+
+    /* Section titles (Nike-style) */
+    h2.section-title{font-size:64px; text-transform:uppercase; letter-spacing:1px; margin:0 0 28px; text-align:center}
+    h2.section-title span{position:relative}
+    h2.section-title span::after{content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-14px; width:320px; height:6px; border-radius:4px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow:0 0 22px rgba(86,204,242,.9)}
+    @media (max-width:720px){h2.section-title{font-size:40px}}
+
+    /* ── EXPERIENCE GRID ──────────────────────────────────────────────── */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:26px}
+    .card{grid-column:span 4; background:var(--card); border-radius:20px; overflow:hidden; box-shadow:var(--shadow); transition:.3s; cursor:pointer; position:relative}
+    .card.large{grid-column:span 6}
+    @media (max-width:1100px){.card,.card.large{grid-column:span 6}}
+    @media (max-width:720px){.card,.card.large{grid-column:span 12}}
+
+    .media{height:280px; width:100%; object-fit:cover}
+    .pad{padding:28px}
+    .role-badge{position:absolute; top:18px; left:18px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#0b0c10; padding:10px 16px; border-radius:999px; font-weight:900; text-transform:none; box-shadow:0 0 16px rgba(86,204,242,.7)}
+
+    .card h3{margin:0 0 6px; font-size:30px}
+    .card p{margin:8px 0 0; color:var(--muted); font-size:22px}
+
+    /* reveal on scroll */
+    .reveal{opacity:0; transform:translateY(40px); transition:all .8s ease}
+    .reveal.visible{opacity:1; transform:translateY(0)}
+
+    /* on click zoom pulse */
+    .zoom{animation:zoomIn .18s ease}
+    @keyframes zoomIn{from{transform:scale(.98)} to{transform:scale(1)}}
+
+    /* ── MODAL ────────────────────────────────────────────────────────── */
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.6); z-index:2000}
+    .modal.open{display:flex}
+    .modal-card{width:min(920px,92vw); max-height:85vh; overflow:auto; background:#0f1320; border-radius:22px; box-shadow:0 30px 80px rgba(0,0,0,.6)}
+    .modal-head{position:relative}
+    .modal-head img{width:100%; height:360px; object-fit:cover}
+    .modal-body{padding:28px}
+    .modal-body h3{font-size:34px; margin:0 0 6px}
+    .modal-body p{font-size:22px; color:var(--muted); line-height:1.55}
+
+    /* ── SKILLS GRID ─────────────────────────────────────────────────── */
+    .skills{display:grid; grid-template-columns:repeat(12,1fr); gap:22px}
+    .skill{grid-column:span 3; background:#1b1f2a; padding:40px; border-radius:18px; text-align:center; font-weight:800; box-shadow:0 0 14px rgba(86,204,242,.12); animation:glow 3s infinite alternate}
+    @media (max-width:1100px){.skill{grid-column:span 4}}
+    @media (max-width:720px){.skill{grid-column:span 6}}
+
+    footer{background:#111; color:var(--muted); text-align:center; padding:56px; margin-top:80px; font-size:20px}
+    footer a{color:var(--accent); text-decoration:none}
+  </style>
+</head>
+<body>
+  <!-- ── NAVBAR ──────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="CV - Hedriana..pdf" download>Download Resume</a>
+  </nav>
+
+  <!-- ── HERO ───────────────────────────────────────────────────────── -->
+  <header class="hero" id="home">
+    <div class="hero-wrap">
+      <img class="avatar" src="picture.jpg" alt="Profile Picture" />
+      <h1 class="name">Christian Kyle S. Hedriana</h1>
+      <div class="contact-links">
+        <a href="mailto:hedriaa.c@gmail.com">📧 hedriaa.c@gmail.com</a><br/>
+        <a href="tel:09994037415">📱 09994037415 (Smart)</a> | <a href="tel:09164037493">📱 09164037493 (Globe)</a>
+      </div>
+      <div class="btns">
+        <a class="btn" href="#experience">Explore My Work</a>
+        <a class="btn" href="CV - Hedriana..pdf" download>Download Resume</a>
+      </div>
+    </div>
+    <div class="scroll-down">⬇️</div>
+  </header>
+
+  <!-- ── EXPERIENCE ─────────────────────────────────────────────────── -->
+  <section id="experience">
+    <div class="section-bg parallax" style="background-image:url('https://images.unsplash.com/photo-1526244434298-88fcbcb066b5?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="section-overlay"></div>
+    <h2 class="section-title"><span>Experience</span></h2>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card large reveal" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive (Healthcare)" data-img="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80" data-desc="• Managed data, archiving, and client records across purchase orders, email, and customer profiles.\n• Served as a technical resource for a medical product line; handled product inquiries and support.\n• Supported the client’s product helpdesk; administered tickets and guided resolutions.\n• Engaged leads and prospective clients with concise sales pitches.">
+        <span class="role-badge">Senior Process Executive</span>
+        <img class="media" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80" alt="Healthcare Office"/>
+        <div class="pad">
+          <h3>Cognizant Technology Solutions</h3>
+          <p>Handled data management and client records, provided technical support for medical products, and assisted with customer product inquiries and sales leads.</p>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card reveal" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1400&q=80" data-desc="• Delivered advanced troubleshooting for complex issues and guided end‑users remotely.\n• Resolved escalations, coordinated with backend teams, and ensured SLA adherence.\n• Performed system maintenance checks to keep environments stable and performant.">
+        <span class="role-badge">L2 Technical Advisor</span>
+        <img class="media" src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1400&q=80" alt="Tech Support Desk"/>
+        <div class="pad">
+          <h3>Concentrix Philippines</h3>
+          <p>Advanced troubleshooting for escalations and performance; ensured stable systems and speedy resolutions.</p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card reveal" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="https://images.unsplash.com/photo-1560264418-c4445382edbc?auto=format&fit=crop&w=1400&q=80" data-desc="• Led and coached high‑performing support teams.\n• Boosted CSAT through playbooks, huddles, and QA feedback loops.\n• Managed performance metrics, reporting, and continuous improvement initiatives.">
+        <span class="role-badge">Team Leader / SME</span>
+        <img class="media" src="https://images.unsplash.com/photo-1560264418-c4445382edbc?auto=format&fit=crop&w=1400&q=80" alt="Call Center Team"/>
+        <div class="pad">
+          <h3>24/7.ai Philippines</h3>
+          <p>Led and coached support teams, improved customer satisfaction, and managed performance metrics and reporting.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ──────────────────────────────────────────────────── -->
+  <section id="education">
+    <div class="section-bg parallax" style="background-image:url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="section-overlay"></div>
+    <h2 class="section-title"><span>Education</span></h2>
+
+    <div class="grid">
+      <article class="card large reveal" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80" data-desc="TUP Manila — Electronics Engineering Technology (2015–2018). Coursework in circuits, communications, and applied computing. Built capstone projects and collaborated in lab‑based teams.">
+        <span class="role-badge">Electronics Eng'g Tech</span>
+        <img class="media" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80" alt="University"/>
+        <div class="pad">
+          <h3>Technological University of the Philippines</h3>
+          <p>Electronics Engineering Technology · 2015–2018</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ─────────────────────────────────────────────────────── -->
+  <section id="skills">
+    <div class="section-bg parallax" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="section-overlay"></div>
+    <h2 class="section-title"><span>Skills</span></h2>
+
+    <div class="skills">
+      <div class="skill reveal" data-title="Insurance Verification" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=1400&q=80" data-desc="Eligibility checks, coverage confirmation, benefits coordination, and payer policy navigation.">Insurance Verification</div>
+      <div class="skill reveal" data-title="Prior Authorization" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1504691342899-8f47eb489c02?auto=format&fit=crop&w=1400&q=80" data-desc="Pre‑cert submissions, documentation collection, status follow‑ups, denials prevention.">Prior Authorization</div>
+      <div class="skill reveal" data-title="Healthcare Communication" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1585712183954-6b45742d762f?auto=format&fit=crop&w=1400&q=80" data-desc="Empathetic patient interactions, provider coordination, HIPAA‑aware messaging.">Healthcare Communication</div>
+      <div class="skill reveal" data-title="Technical Support" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" data-desc="Remote troubleshooting, escalation handling, device/software diagnostics.">Technical Support</div>
+      <div class="skill reveal" data-title="Data Management" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80" data-desc="Data entry QA, archiving standards, PO/email/customer record upkeep.">Data Management</div>
+      <div class="skill reveal" data-title="Team Leadership" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80" data-desc="Coaching, huddles, KPI tracking, continuous improvement culture.">Team Leadership</div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+  <footer>
+    <p>📧 <a href="mailto:hedriaa.c@gmail.com">hedriaa.c@gmail.com</a></p>
+    <p>📱 09994037415 (Smart) | 09164037493 (Globe)</p>
+    <p>📍 Taguig City, Metro Manila 1630</p>
+    <p>© 2025 Christian Kyle S. Hedriana</p>
+  </footer>
+
+  <!-- ── MODAL TEMPLATE ─────────────────────────────────────────────── -->
+  <div class="modal" id="modal">
+    <div class="modal-card" id="modalCard">
+      <div class="modal-head"><img id="modalImg" src="" alt="" /></div>
+      <div class="modal-body">
+        <h3 id="modalTitle"></h3>
+        <p id="modalRole" style="font-weight:800; color:#c9fdd7"></p>
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Reveal on scroll
+    const reveals=[...document.querySelectorAll('.reveal')];
+    const onScroll=()=>{
+      const h=window.innerHeight;
+      reveals.forEach(el=>{ const t=el.getBoundingClientRect().top; if(t<h-120) el.classList.add('visible');});
+      // Parallax
+      document.querySelectorAll('.parallax').forEach(bg=>{
+        const r=bg.getBoundingClientRect();
+        const offset=(r.top/window.innerHeight)*30; // tweak strength
+        bg.style.transform=`translateY(${offset}px)`;
+      });
+    };
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+
+    // Modal logic (cards + skills all clickable)
+    const modal=document.getElementById('modal');
+    const modalImg=document.getElementById('modalImg');
+    const modalTitle=document.getElementById('modalTitle');
+    const modalRole=document.getElementById('modalRole');
+    const modalDesc=document.getElementById('modalDesc');
+    const modalCard=document.getElementById('modalCard');
+
+    function openModal(el){
+      el.classList.add('zoom'); setTimeout(()=>el.classList.remove('zoom'),180);
+      modalImg.src=el.dataset.img||'';
+      modalTitle.textContent=el.dataset.title||'';
+      modalRole.textContent=el.dataset.role||'';
+      modalDesc.innerText=(el.dataset.desc||'').trim();
+      modal.classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function closeModal(){ modal.classList.remove('open'); document.body.style.overflow='auto'; }
+
+    // Bind to experience/education cards
+    document.querySelectorAll('.card').forEach(c=>{
+      c.addEventListener('click',()=>openModal(c));
+    });
+    // Bind to skill tiles
+    document.querySelectorAll('.skill').forEach(s=>{
+      s.addEventListener('click',()=>openModal(s));
+    });
+
+    // Click outside to close
+    modal.addEventListener('click', (e)=>{ if(!modalCard.contains(e.target)) closeModal(); });
+    // Escape to close
+    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+  </script>
+</body>
+</html>
