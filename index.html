@@ -11,31 +11,40 @@
   --shadow:0 10px 40px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Segoe UI',Roboto,Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth;font-size:20px;}
+body{margin:0;font-family:'Segoe UI',Roboto,Inter,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth;font-size:20px;}
 
-/* NAV */
-nav{position:fixed;width:100%;top:0;left:0;background:#111;display:flex;justify-content:center;gap:40px;padding:20px;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:600;}
+/* NAVIGATION */
+nav{
+  position:fixed;width:100%;top:0;left:0;background:#111;
+  display:flex;justify-content:center;gap:40px;padding:20px;z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:600;
+}
 nav a{color:var(--ink);text-decoration:none;transition:.25s;}
 nav a:hover{color:var(--accent);}
 
-/* HERO */
-header.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:140px 20px 80px;position:relative;overflow:hidden;background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);background-size:600% 600%;animation:gradientBG 20s ease infinite;}
-@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-
+/* HERO SECTION */
+header.hero{
+  min-height:100vh;display:grid;place-items:center;text-align:center;
+  padding:140px 20px 80px;
+  background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+  background-size:600% 600%;animation:gradientBG 20s ease infinite;
+}
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 .hero-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;}
 .avatar{width:280px;height:280px;border-radius:50%;object-fit:cover;border:7px solid var(--accent);box-shadow:var(--shadow);transition:.3s;}
 .avatar:hover{transform:scale(1.05);}
 h1.name{font-size:86px;margin:8px 0 0;color:var(--ink);}
 @media(max-width:720px){h1.name{font-size:52px}.avatar{width:200px;height:200px;}}
-
 .contact-links{margin-top:6px;font-size:22px;}
 .contact-links a{color:var(--accent);text-decoration:none;margin:0 10px;font-weight:700;}
 .contact-links a:hover{color:var(--accent-2);}
-
 .btns{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap;justify-content:center;}
-.btn{display:inline-block;padding:18px 38px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:800;letter-spacing:.3px;box-shadow:var(--shadow);transition:.25s;}
+.btn{padding:18px 38px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:800;letter-spacing:.3px;box-shadow:var(--shadow);transition:.25s;}
 .btn:hover{background:var(--accent-2);transform:scale(1.05);}
-
 .scroll-down{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:36px;opacity:.9;animation:bounce 2s infinite;}
 @keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0)}40%{transform:translate(-50%,-14px)}60%{transform:translate(-50%,-7px)}}
 
@@ -43,7 +52,6 @@ h1.name{font-size:86px;margin:8px 0 0;color:var(--ink);}
 section{position:relative;padding:120px 40px;max-width:1600px;margin:0 auto;}
 .section-bg{position:absolute;inset:0;z-index:-2;background-position:center;background-size:cover;transform:translateZ(0);}
 .section-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:-1;}
-
 h2.section-title{font-size:64px;text-transform:uppercase;letter-spacing:1px;margin:0 0 40px;text-align:center;color:var(--ink);}
 h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:300px;height:6px;border-radius:4px;background:var(--accent);}
 @media(max-width:720px){h2.section-title{font-size:40px;}}
@@ -55,11 +63,9 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .card.large{grid-column:span 6;}
 @media(max-width:1100px){.card,.card.large{grid-column:span 6;}}
 @media(max-width:720px){.card,.card.large{grid-column:span:12;}}
-
 .media{height:280px;width:100%;object-fit:cover;}
 .pad{padding:24px;}
 .role-badge{position:absolute;top:16px;left:16px;background:var(--accent);color:#0b0c10;padding:8px 14px;border-radius:6px;font-weight:900;}
-
 .card h3{margin:0 0 6px;font-size:26px;}
 .card p{margin:8px 0 0;color:var(--muted);font-size:20px;}
 
@@ -96,14 +102,8 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .timeline-content h4{margin:0 0 12px;color:var(--muted);}
 .timeline-content ul{margin:0;padding-left:20px;line-height:1.6;}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
-.timeline-item.highlight {
-  animation: pulse 0.8s ease-in-out;
-}
-@keyframes pulse {
-  0% { transform: scale(1.05); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1.05); }
-}
+.timeline-item.highlight {animation: pulse 0.8s ease-in-out;}
+@keyframes pulse {0% { transform: scale(1.05); } 50% { transform: scale(1.1); } 100% { transform: scale(1.05); }}
 @media(max-width:720px){
   .timeline::before{left:8px;}
   .timeline-item{margin:30px 0;}
@@ -113,6 +113,7 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
   .timeline-item:nth-child(even) .timeline-date{position:relative;left:0;margin-bottom:6px;text-align:left;}
 }
 
+/* FOOTER */
 footer{background:#111;color:var(--muted);text-align:center;padding:56px;margin-top:80px;font-size:20px;}
 footer a{color:var(--accent);text-decoration:none;}
 </style>
@@ -123,6 +124,7 @@ footer a{color:var(--accent);text-decoration:none;}
   <a href="#home">Home</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
+  <a href="#timeline">Timeline</a>
   <a href="#skills">Skills</a>
   <a href="CV - Hedriana..pdf" download>Download Resume</a>
 </nav>
@@ -148,7 +150,8 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-overlay"></div>
   <h2 class="section-title"><span>Experience</span></h2>
   <div class="grid">
-    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive (Healthcare/Sales)" data-img="cognizant.jpg" data-desc="● Responsible for data management, archiving and updating of purchase order, emails, and customer information\n● Serves as a technical resource to support sales of a specific medical product or solution\n● Administering and helping to manage Client’s Product support for the customers who call in the support center\n● Contact leads and prospective clients to deliver their sales pitches\nMarch 2022 - PRESENT">
+    <!-- Cognizant -->
+    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive" data-img="cognizant.jpg" data-desc="● Data management, archiving, and updating records\n● Technical support for sales of medical products\n● Administer client product support\n● Contact leads and prospective clients\nMarch 2022 - Present">
       <span class="role-badge">Senior Process Executive</span>
       <img class="media" src="cognizant.jpg" alt="Cognizant Office"/>
       <div class="pad">
@@ -156,8 +159,8 @@ footer a{color:var(--accent);text-decoration:none;}
         <p>Handled data management, client support, and sales assistance.</p>
       </div>
     </article>
-
-    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="concentrix.jpg" data-desc="● Experience in Technical Care Support with proven ability to troubleshoot software, hardware, and connectivity issues remotely\n● Handles calls escalated by L1 support, configuration issues, troubleshooting and software installations on both computer and handheld devices\n● Performs moderately advanced technological systems support, maintenance, and testing\nJune 2021 - December 2021">
+    <!-- Concentrix -->
+    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="concentrix.jpg" data-desc="● Troubleshoot software, hardware, and connectivity issues\n● Escalation handling and installations\n● Systems support and maintenance\nJune 2021 - December 2021">
       <span class="role-badge">L2 Technical Advisor</span>
       <img class="media" src="concentrix.jpg" alt="Concentrix Office"/>
       <div class="pad">
@@ -165,8 +168,8 @@ footer a{color:var(--accent);text-decoration:none;}
         <p>Advanced troubleshooting and technical support.</p>
       </div>
     </article>
-
-    <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="247.jpg" data-desc="● Responsible for coaching and training agents on improving Customer Interaction and offering advisors guidance\n● Provides knowledge, resources and information to support agents\n● Performs moderately advanced technological systems support, maintenance, and testing\n● Responsible for data management, archiving and updating of purchase order, emails, and customer information\nSeptember 2018 - May 2021">
+    <!-- 24/7.ai -->
+    <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="247.jpg" data-desc="● Coach and train agents\n● Provide knowledge and resources\n● Systems support, maintenance, and testing\n● Data management and archiving\nSeptember 2018 - May 2021">
       <span class="role-badge">Team Leader / SME</span>
       <img class="media" src="247.jpg" alt="24/7.ai Office"/>
       <div class="pad">
@@ -193,6 +196,13 @@ footer a{color:var(--accent);text-decoration:none;}
   </div>
 </section>
 
+<section id="timeline">
+  <h2 class="section-title"><span>Timeline</span></h2>
+  <div class="timeline">
+    <!-- Items dynamically highlight on card click -->
+  </div>
+</section>
+
 <section id="skills">
   <div class="section-bg" style="background-image:url('concentrix.jpg');"></div>
   <div class="section-overlay"></div>
@@ -207,61 +217,6 @@ footer a{color:var(--accent);text-decoration:none;}
   </div>
 </section>
 
-<section id="timeline">
-  <h2 class="section-title"><span>Timeline</span></h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">Mar 2022 - Present</div>
-      <div class="timeline-content">
-        <h3>Cognizant Technology Solutions</h3>
-        <h4>Senior Process Executive (Healthcare/Sales)</h4>
-        <ul>
-          <li>Responsible for data management, archiving and updating of purchase order, emails, and customer information</li>
-          <li>Technical resource to support sales of a specific medical product or solution</li>
-          <li>Administering and helping manage Client’s Product support for customers calling in</li>
-          <li>Contact leads and prospective clients to deliver sales pitches</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">Jun 2021 - Dec 2021</div>
-      <div class="timeline-content">
-        <h3>Concentrix Philippines</h3>
-        <h4>L2 Technical Advisor (Technical Support/Service Desk)</h4>
-        <ul>
-          <li>Technical Care Support with troubleshooting software, hardware, connectivity issues remotely</li>
-          <li>Handles escalated L1 support calls, device/software installations</li>
-          <li>Moderately advanced systems support, maintenance, and testing</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">Sep 2018 - May 2021</div>
-      <div class="timeline-content">
-        <h3>24/7.ai Philippines</h3>
-        <h4>Team Leader/SME (Collections/Technical Support)</h4>
-        <ul>
-          <li>Coaching and training agents to improve Customer Interaction</li>
-          <li>Provide knowledge, resources, and guidance to agents</li>
-          <li>Moderately advanced systems support, maintenance, testing</li>
-          <li>Responsible for data management, archiving and updating of records</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">May 2015 - Jul 2018</div>
-      <div class="timeline-content">
-        <h3>Technological University of the Philippines</h3>
-        <h4>Electronics Engineering Technology</h4>
-        <ul>
-          <li>Electronics Engineering Technology (2015–2018)</li>
-          <li>Coursework in circuits, communications, and applied computing</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer>
   <p>📧 <a href="mailto:hedriana.c@gmail.com">hedriana.c@gmail.com</a></p>
   <p>📱 09994037415 (Smart) | 09164037493 (Globe)</p>
@@ -269,6 +224,7 @@ footer a{color:var(--accent);text-decoration:none;}
   <p>© 2025 Christian Kyle S. Hedriana</p>
 </footer>
 
+<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-card" id="modalCard">
     <div class="modal-head"><img id="modalImg" src="" alt="" /></div>
@@ -281,63 +237,33 @@ footer a{color:var(--accent);text-decoration:none;}
 </div>
 
 <script>
+// MODAL FUNCTIONALITY
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
 const modalRole = document.getElementById('modalRole');
 const modalDesc = document.getElementById('modalDesc');
-const modalCard = document.getElementById('modalCard');
-
-const timelineItems = document.querySelectorAll('.timeline-item');
-
-function highlightTimeline(title){
-  timelineItems.forEach(item => {
-    const itemTitle = item.querySelector('h3').textContent.trim().toLowerCase();
-    if(itemTitle === title.trim().toLowerCase()){
-      item.style.transform = 'scale(1.05)';
-      item.style.boxShadow = '0 20px 60px rgba(0,255,200,.6)';
-      item.style.borderLeft = '4px solid var(--accent-2)';
-      item.scrollIntoView({behavior:'smooth', block:'center'});
-      item.classList.add('highlight');
-    } else {
-      item.style.transform = 'scale(1)';
-      item.style.boxShadow = 'var(--shadow)';
-      item.style.borderLeft = 'none';
-      item.classList.remove('highlight');
-    }
-  });
-}
 
 document.querySelectorAll('.card, .skill').forEach(el => {
   el.addEventListener('click', () => {
-    const title = el.dataset.title || '';
-    highlightTimeline(title);
-
     modalImg.src = el.dataset.img || '';
     modalTitle.textContent = el.dataset.title || '';
     modalRole.textContent = el.dataset.role || '';
-
     modalDesc.innerHTML = '';
-
     if(el.dataset.desc){
-      el.dataset.desc.split(/\\n|●/).forEach(line => {
-        if(line.trim() === '') return;
-        const li = document.createElement('li');
-        li.textContent = line.trim();
+      el.dataset.desc.split(/\n|●/).forEach(line => {
+        if(line.trim()==='') return;
+        const li = document.createElement('li'); li.textContent=line.trim();
         modalDesc.appendChild(li);
       });
     }
-
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
 });
 
 modal.addEventListener('click', e => {
-  if(e.target === modal){
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  if(e.target===modal){ modal.classList.remove('open'); document.body.style.overflow=''; }
 });
 </script>
 
