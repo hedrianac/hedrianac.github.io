@@ -1,215 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Christian Kyle S. Hedriana — Portfolio Resume</title>
-  <style>
-    :root{
-      --bg:#0b0c10; --panel:#10131a; --ink:#e8eaed; --muted:#b7b9be;
-      --accent:#56ccf2; --accent-2:#34d399; --card:#111318;
-      --shadow:0 10px 40px rgba(0,0,0,.55);
-    }
-    *{box-sizing:border-box;}
-    body{margin:0; font-family:'Segoe UI', Roboto, Inter, system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--ink); scroll-behavior:smooth; font-size:20px;}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Christian Kyle S. Hedriana — Portfolio Resume</title>
+<style>
+:root{
+  --bg:#0b0c10; --panel:#10131a; --ink:#e8eaed; --muted:#b7b9be;
+  --accent:#56ccf2; --accent-2:#34d399; --card:#111318;
+  --shadow:0 10px 40px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Segoe UI',Roboto,Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth;font-size:20px;}
 
-    nav{position:fixed; width:100%; top:0; left:0; background:#111; display:flex; justify-content:center; gap:40px; padding:20px; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,.7); font-weight:600;}
-    nav a{color:var(--ink); text-decoration:none; transition:.25s;}
-    nav a:hover{color:var(--accent);}
+nav{position:fixed;width:100%;top:0;left:0;background:#111;display:flex;justify-content:center;gap:40px;padding:20px;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:600;}
+nav a{color:var(--ink);text-decoration:none;transition:.25s;}
+nav a:hover{color:var(--accent);}
 
-    header.hero{min-height:100vh; display:grid; place-items:center; text-align:center; padding:140px 20px 80px; position:relative; overflow:hidden; background:linear-gradient(270deg,#0f2027,#203a43,#2c5364); background-size:600% 600%;}
+header.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:140px 20px 80px;position:relative;overflow:hidden;background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);background-size:600% 600%;animation:gradientBG 20s ease infinite;}
+@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
-    .hero-wrap{display:flex; flex-direction:column; align-items:center; gap:18px;}
-    .avatar{width:280px; height:280px; border-radius:50%; object-fit:cover; border:7px solid var(--accent); box-shadow:var(--shadow);}
-    h1.name{font-size:86px; margin:8px 0 0; color:var(--ink);}
-    @media (max-width:720px){h1.name{font-size:52px}.avatar{width:200px;height:200px;}}
+.hero-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.avatar{width:280px;height:280px;border-radius:50%;object-fit:cover;border:7px solid var(--accent);box-shadow:var(--shadow);transition:.3s;}
+.avatar:hover{transform:scale(1.05);}
+h1.name{font-size:86px;margin:8px 0 0;color:var(--ink);}
+@media(max-width:720px){h1.name{font-size:52px}.avatar{width:200px;height:200px;}}
 
-    .contact-links{margin-top:6px; font-size:22px;}
-    .contact-links a{color:var(--accent); text-decoration:none; margin:0 10px; font-weight:700;}
-    .contact-links a:hover{color:var(--accent-2);}
+.contact-links{margin-top:6px;font-size:22px;}
+.contact-links a{color:var(--accent);text-decoration:none;margin:0 10px;font-weight:700;}
+.contact-links a:hover{color:var(--accent-2);}
 
-    .btns{display:flex; gap:18px; margin-top:28px; flex-wrap:wrap; justify-content:center;}
-    .btn{display:inline-block; padding:18px 38px; border-radius:8px; background:var(--accent); color:#111; text-decoration:none; font-weight:800; letter-spacing:.3px; box-shadow:var(--shadow); transition:.25s;}
-    .btn:hover{background:var(--accent-2);}
+.btns{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-block;padding:18px 38px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:800;letter-spacing:.3px;box-shadow:var(--shadow);transition:.25s;}
+.btn:hover{background:var(--accent-2);transform:scale(1.05);}
 
-    .scroll-down{position:absolute; bottom:24px; left:50%; transform:translateX(-50%); font-size:36px; opacity:.9; animation:bounce 2s infinite;}
-    @keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0)}40%{transform:translate(-50%,-14px)}60%{transform:translate(-50%,-7px)}}
+.scroll-down{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:36px;opacity:.9;animation:bounce 2s infinite;}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0)}40%{transform:translate(-50%,-14px)}60%{transform:translate(-50%,-7px)}}
 
-    section{position:relative; padding:120px 40px; max-width:1600px; margin:0 auto;}
-    .section-bg{position:absolute; inset:0; z-index:-2; background-position:center; background-size:cover; transform:translateZ(0);}
-    .section-overlay{position:absolute; inset:0; background:rgba(0,0,0,.6); z-index:-1;}
+section{position:relative;padding:120px 40px;max-width:1600px;margin:0 auto;}
+.section-bg{position:absolute;inset:0;z-index:-2;background-position:center;background-size:cover;transform:translateZ(0);}
+.section-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:-1;}
 
-    h2.section-title{font-size:64px; text-transform:uppercase; letter-spacing:1px; margin:0 0 40px; text-align:center; color:var(--ink);}
-    h2.section-title span::after{content:""; display:block; margin:14px auto 0; width:300px; height:6px; border-radius:4px; background:var(--accent);}
-    @media (max-width:720px){h2.section-title{font-size:40px;}}
+h2.section-title{font-size:64px;text-transform:uppercase;letter-spacing:1px;margin:0 0 40px;text-align:center;color:var(--ink);}
+h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:300px;height:6px;border-radius:4px;background:var(--accent);}
+@media(max-width:720px){h2.section-title{font-size:40px;}}
 
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:26px;}
-    .card{grid-column:span 4; background:var(--card); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); cursor:pointer; position:relative; transition:.25s;}
-    .card:hover{transform:translateY(-5px); box-shadow:0 15px 50px rgba(0,0,0,.65);}
-    .card.large{grid-column:span 6;}
-    @media (max-width:1100px){.card,.card.large{grid-column:span 6;}}
-    @media (max-width:720px){.card,.card.large{grid-column:span 12;}}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:26px;}
+.card{grid-column:span 4;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;position:relative;transition:.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,.65);}
+.card.large{grid-column:span 6;}
+@media(max-width:1100px){.card,.card.large{grid-column:span 6;}}
+@media(max-width:720px){.card,.card.large{grid-column:span 12;}}
 
-    .media{height:280px; width:100%; object-fit:cover;}
-    .pad{padding:24px;}
-    .role-badge{position:absolute; top:16px; left:16px; background:var(--accent); color:#0b0c10; padding:8px 14px; border-radius:6px; font-weight:900;}
+.media{height:280px;width:100%;object-fit:cover;}
+.pad{padding:24px;}
+.role-badge{position:absolute;top:16px;left:16px;background:var(--accent);color:#0b0c10;padding:8px 14px;border-radius:6px;font-weight:900;}
 
-    .card h3{margin:0 0 6px; font-size:26px;}
-    .card p{margin:8px 0 0; color:var(--muted); font-size:20px;}
+.card h3{margin:0 0 6px;font-size:26px;}
+.card p{margin:8px 0 0;color:var(--muted);font-size:20px;}
 
-    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.75); z-index:2000;}
-    .modal.open{display:flex;}
-    .modal-card{width:min(920px,92vw); max-height:85vh; overflow:auto; background:#0f1320; border-radius:12px; box-shadow:var(--shadow);}
-    .modal-head img{width:100%; height:320px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px;}
-    .modal-body{padding:28px;}
-    .modal-body h3{font-size:30px; margin:0 0 10px;}
-    .modal-body p{font-size:20px; color:var(--muted); line-height:1.55;}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:2000;}
+.modal.open{display:flex;}
+.modal-card{width:min(920px,92vw);max-height:85vh;overflow:auto;background:#0f1320;border-radius:12px;box-shadow:var(--shadow);}
+.modal-head img{width:100%;height:320px;object-fit:cover;border-top-left-radius:12px;border-top-right-radius:12px;}
+.modal-body{padding:28px;}
+.modal-body h3{font-size:30px;margin:0 0 10px;}
+.modal-body p{font-size:20px;color:var(--muted);line-height:1.55;}
 
-    .skills{display:grid; grid-template-columns:repeat(12,1fr); gap:22px;}
-    .skill{grid-column:span 3; background:#1b1f2a; padding:40px; border-radius:12px; text-align:center; font-weight:800; box-shadow:var(--shadow); cursor:pointer; transition:.25s;}
-    .skill:hover{transform:translateY(-5px); box-shadow:0 15px 50px rgba(0,0,0,.65);}
-    @media (max-width:1100px){.skill{grid-column:span 4;}}
-    @media (max-width:720px){.skill{grid-column:span 6;}}
+.skills{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;}
+.skill{grid-column:span 3;background:#1b1f2a;padding:40px;border-radius:12px;text-align:center;font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition:.3s;}
+.skill:hover{transform:translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,.65);}
+@media(max-width:1100px){.skill{grid-column:span 4;}}
+@media(max-width:720px){.skill{grid-column:span 6;}}
 
-    footer{background:#111; color:var(--muted); text-align:center; padding:56px; margin-top:80px; font-size:20px;}
-    footer a{color:var(--accent); text-decoration:none;}
-  </style>
+footer{background:#111;color:var(--muted);text-align:center;padding:56px;margin-top:80px;font-size:20px;}
+footer a{color:var(--accent);text-decoration:none;}
+</style>
 </head>
 <body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="CV - Hedriana..pdf" download>Download Resume</a>
-  </nav>
 
-  <header class="hero" id="home">
-    <div class="hero-wrap">
-      <img class="avatar" src="./picture.jpg" alt="Christian Kyle Hedriana" />
-      <h1 class="name">Christian Kyle S. Hedriana</h1>
-      <div class="contact-links">
-        <a href="mailto:hedriana.c@gmail.com">📧 hedriana.c@gmail.com</a><br/>
-        <a href="tel:09994037415">📱 09994037415 (Smart)</a> | <a href="tel:09164037493">📱 09164037493 (Globe)</a>
-      </div>
-      <div class="btns">
-        <a class="btn" href="#experience">Explore My Work</a>
-        <a class="btn" href="CV - Hedriana..pdf" download>Download Resume</a>
-      </div>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="CV - Hedriana..pdf" download>Download Resume</a>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-wrap">
+    <img class="avatar" src="./picture.jpg" alt="Christian Kyle Hedriana" />
+    <h1 class="name">Christian Kyle S. Hedriana</h1>
+    <div class="contact-links">
+      <a href="mailto:hedriana.c@gmail.com">📧 hedriana.c@gmail.com</a><br/>
+      <a href="tel:09994037415">📱 09994037415 (Smart)</a> | <a href="tel:09164037493">📱 09164037493 (Globe)</a>
     </div>
-    <div class="scroll-down">⬇️</div>
-  </header>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1605902711622-cfb43c443f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="section-overlay"></div>
-    <h2 class="section-title"><span>Experience</span></h2>
-    <div class="grid">
-      <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive" data-img="https://images.unsplash.com/photo-1605902711622-cfb43c443f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Managed data, archiving, client records; supported medical products and inquiries.">
-        <span class="role-badge">Senior Process Executive</span>
-        <img class="media" src="https://images.unsplash.com/photo-1605902711622-cfb43c443f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Healthcare Office"/>
-        <div class="pad">
-          <h3>Cognizant Technology Solutions</h3>
-          <p>Handled data management, supported medical products, and assisted inquiries.</p>
-        </div>
-      </article>
-
-      <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Delivered advanced troubleshooting, resolved escalations, and maintained system performance.">
-        <span class="role-badge">L2 Technical Advisor</span>
-        <img class="media" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Tech Support"/>
-        <div class="pad">
-          <h3>Concentrix Philippines</h3>
-          <p>Advanced troubleshooting, escalations, and system performance support.</p>
-        </div>
-      </article>
-
-      <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Led support teams, improved CSAT, managed KPIs, and reporting.">
-        <span class="role-badge">Team Leader / SME</span>
-        <img class="media" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Team Leadership"/>
-        <div class="pad">
-          <h3>24/7.ai Philippines</h3>
-          <p>Led support teams, improved satisfaction, and managed KPIs.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1581090700225-0a431bff08c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="section-overlay"></div>
-    <h2 class="section-title"><span>Education</span></h2>
-    <div class="grid">
-      <article class="card large" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="https://images.unsplash.com/photo-1581090700225-0a431bff08c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Electronics Engineering Technology (2015–2018). Coursework in circuits, communications, and applied computing.">
-        <span class="role-badge">Electronics Eng'g Tech</span>
-        <img class="media" src="https://images.unsplash.com/photo-1581090700225-0a431bff08c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="University"/>
-        <div class="pad">
-          <h3>Technological University of the Philippines</h3>
-          <p>Electronics Engineering Technology · 2015–2018</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
-    <div class="section-overlay"></div>
-    <h2 class="section-title"><span>Skills</span></h2>
-    <div class="skills">
-      <div class="skill" data-title="Insurance Verification" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1581091215367-59ab6c68f362?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Eligibility checks, coverage confirmation, benefits coordination, and payer policy navigation.">Insurance Verification</div>
-      <div class="skill" data-title="Prior Authorization" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1504691342899-8f47eb489c02?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Pre-cert submissions, documentation collection, status follow-ups, denials prevention.">Prior Authorization</div>
-      <div class="skill" data-title="Healthcare Communication" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1585712183954-6b45742d762f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Empathetic patient interactions, provider coordination, HIPAA-aware messaging.">Healthcare Communication</div>
-      <div class="skill" data-title="Technical Support" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Remote troubleshooting, escalation handling, device/software diagnostics.">Technical Support</div>
-      <div class="skill" data-title="Data Management" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Data entry QA, archiving standards, PO/email/customer record upkeep.">Data Management</div>
-      <div class="skill" data-title="Team Leadership" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" data-desc="Coaching, huddles, KPI tracking, continuous improvement culture.">Team Leadership</div>
-    </div>
-  </section>
-
-  <footer>
-    <p>📧 <a href="mailto:hedriana.c@gmail.com">hedriana.c@gmail.com</a></p>
-    <p>📱 09994037415 (Smart) | 09164037493 (Globe)</p>
-    <p>📍 Taguig City, Metro Manila 1630</p>
-    <p>© 2025 Christian Kyle S. Hedriana</p>
-  </footer>
-
-  <div class="modal" id="modal">
-    <div class="modal-card" id="modalCard">
-      <div class="modal-head"><img id="modalImg" src="" alt="" /></div>
-      <div class="modal-body">
-        <h3 id="modalTitle"></h3>
-        <p id="modalRole"></p>
-        <p id="modalDesc"></p>
-      </div>
+    <div class="btns">
+      <a class="btn" href="#experience">Explore My Work</a>
+      <a class="btn" href="CV - Hedriana..pdf" download>Download Resume</a>
     </div>
   </div>
+  <div class="scroll-down">⬇️</div>
+</header>
 
-  <script>
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalRole = document.getElementById('modalRole');
-    const modalDesc = document.getElementById('modalDesc');
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1581091215367-59ab6c68f362?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="section-overlay"></div>
+  <h2 class="section-title"><span>Experience</span></h2>
+  <div class="grid">
+    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive (Healthcare)" data-img="https://images.unsplash.com/photo-1581091215367-59ab6c68f362?auto=format&fit=crop&w=1400&q=80" data-desc="• Managed data, archiving, and client records.\n• Supported medical product helpdesk and client inquiries.\n• Assisted in technical and sales support.">
+      <span class="role-badge">Senior Process Executive</span>
+      <img class="media" src="https://images.unsplash.com/photo-1581091215367-59ab6c68f362?auto=format&fit=crop&w=1400&q=80" alt="Healthcare Office"/>
+      <div class="pad">
+        <h3>Cognizant Technology Solutions</h3>
+        <p>Handled data management, supported medical products, and assisted inquiries.</p>
+      </div>
+    </article>
 
-    const cards = document.querySelectorAll('.card, .skill');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        modalImg.src = card.dataset.img || '';
-        modalTitle.textContent = card.dataset.title || '';
-        modalRole.textContent = card.dataset.role || '';
-        modalDesc.innerText = (card.dataset.desc || '').trim();
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-    });
+    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1400&q=80" data-desc="• Delivered advanced troubleshooting and resolved escalations.\n• Performed system checks and maintained performance.">
+      <span class="role-badge">L2 Technical Advisor</span>
+      <img class="media" src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1400&q=80" alt="Tech Support"/>
+      <div class="pad">
+        <h3>Concentrix Philippines</h3>
+        <p>Advanced troubleshooting, escalations, and system support.</p>
+      </div>
+    </article>
+  </div>
+</section>
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1596496050824-5d48b801127e?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="section-overlay"></div>
+  <h2 class="section-title"><span>Education</span></h2>
+  <div class="grid">
+    <article class="card large" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="https://images.unsplash.com/photo-1596496050824-5d48b801127e?auto=format&fit=crop&w=1400&q=80" data-desc="Electronics Engineering Technology (2015–2018). Coursework in circuits, communications, and applied computing.">
+      <span class="role-badge">Electronics Eng'g Tech</span>
+      <img class="media" src="https://images.unsplash.com/photo-1596496050824-5d48b801127e?auto=format&fit=crop&w=1400&q=80" alt="University"/>
+      <div class="pad">
+        <h3>Technological University of the Philippines</h3>
+        <p>Electronics Engineering Technology · 2015–2018</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-bg" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="section-overlay"></div>
+  <h2 class="section-title"><span>Skills</span></h2>
+  <div class="skills">
+    <div class="skill" data-title="Insurance Verification" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1581091215367-59ab6c68f362?auto=format&fit=crop&w=1400&q=80" data-desc="Eligibility checks, coverage confirmation, benefits coordination, and payer policy navigation.">Insurance Verification</div>
+    <div class="skill" data-title="Prior Authorization" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1504691342899-8f47eb489c02?auto=format&fit=crop&w=1400&q=80" data-desc="Pre-cert submissions, documentation collection, status follow-ups, denials prevention.">Prior Authorization</div>
+    <div class="skill" data-title="Healthcare Communication" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1585712183954-6b45742d762f?auto=format&fit=crop&w=1400&q=80" data-desc="Empathetic patient interactions, provider coordination, HIPAA-aware messaging.">Healthcare Communication</div>
+    <div class="skill" data-title="Technical Support" data-role="Core Skill" data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" data-desc="Remote troubleshooting, escalation handling, device/software diagnostics.">Technical Support</div>
+  </div>
+</section>
+
+<footer>
+  <p>📧 <a href="mailto:hedriana.c@gmail.com">hedriana.c@gmail.com</a></p>
+  <p>📱 09994037415 (Smart) | 09164037493 (Globe)</p>
+  <p>📍 Taguig City, Metro Manila 1630</p>
+  <p>© 2025 Christian Kyle S. Hedriana</p>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="modal-head"><img id="modalImg" src="" alt="" /></div>
+    <div class="modal-body">
+      <h3 id="modalTitle"></h3>
+      <p id="modalRole"></p>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalRole = document.getElementById('modalRole');
+const modalDesc = document.getElementById('modalDesc');
+
+document.querySelectorAll('.card, .skill').forEach(card => {
+  card.addEventListener('click', () => {
+    modalImg.src = card.dataset.img || '';
+    modalTitle.textContent = card.dataset.title || '';
+    modalRole.textContent = card.dataset.role || '';
+    modalDesc.innerText = (card.dataset.desc || '').trim();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+modal.addEventListener('click', e => {
+  if(e.target === modal){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+</script>
 </body>
 </html>
