@@ -11,29 +11,16 @@
   --shadow:0 10px 40px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Segoe UI',Roboto,Inter,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth;font-size:20px;}
+body{margin:0;font-family:'Segoe UI',Roboto,Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth;font-size:20px;}
 
-/* NAVIGATION */
-nav{
-  position:fixed;width:100%;top:0;left:0;background:#111;
-  display:flex;justify-content:center;gap:40px;padding:20px;z-index:1000;
-  box-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:600;
-}
+/* NAV */
+nav{position:fixed;width:100%;top:0;left:0;background:#111;display:flex;justify-content:center;gap:40px;padding:20px;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.7);font-weight:600;}
 nav a{color:var(--ink);text-decoration:none;transition:.25s;}
 nav a:hover{color:var(--accent);}
 
-/* HERO SECTION */
-header.hero{
-  min-height:100vh;display:grid;place-items:center;text-align:center;
-  padding:140px 20px 80px;
-  background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);
-  background-size:600% 600%;animation:gradientBG 20s ease infinite;
-}
-@keyframes gradientBG{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+/* HERO */
+header.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:140px 20px 80px;position:relative;overflow:hidden;background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);background-size:600% 600%;animation:gradientBG 20s ease infinite;}
+@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 .hero-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;}
 .avatar{width:280px;height:280px;border-radius:50%;object-fit:cover;border:7px solid var(--accent);box-shadow:var(--shadow);transition:.3s;}
 .avatar:hover{transform:scale(1.05);}
@@ -43,7 +30,7 @@ h1.name{font-size:86px;margin:8px 0 0;color:var(--ink);}
 .contact-links a{color:var(--accent);text-decoration:none;margin:0 10px;font-weight:700;}
 .contact-links a:hover{color:var(--accent-2);}
 .btns{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap;justify-content:center;}
-.btn{padding:18px 38px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:800;letter-spacing:.3px;box-shadow:var(--shadow);transition:.25s;}
+.btn{display:inline-block;padding:18px 38px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:800;letter-spacing:.3px;box-shadow:var(--shadow);transition:.25s;}
 .btn:hover{background:var(--accent-2);transform:scale(1.05);}
 .scroll-down{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:36px;opacity:.9;animation:bounce 2s infinite;}
 @keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0)}40%{transform:translate(-50%,-14px)}60%{transform:translate(-50%,-7px)}}
@@ -84,7 +71,7 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .skills{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;}
 .skill{grid-column:span 3;background:#1b1f2a;padding:40px;border-radius:12px;text-align:center;font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition:.3s;}
 .skill:hover{transform:translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,.65);}
-@media(max-width:1100px){.skill{grid-column:span:4;}}
+@media(max-width:1100px){.skill{grid-column:span 4;}}
 @media(max-width:720px){.skill{grid-column:span:6;}}
 
 /* TIMELINE */
@@ -102,18 +89,12 @@ h2.section-title span::after{content:"";display:block;margin:14px auto 0;width:3
 .timeline-content h4{margin:0 0 12px;color:var(--muted);}
 .timeline-content ul{margin:0;padding-left:20px;line-height:1.6;}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
-.timeline-item.highlight{animation:pulse 0.8s ease-in-out;}
-@keyframes pulse{0%{transform:scale(1.05);}50%{transform:scale(1.1);}100%{transform:scale(1.05);}}
-@media(max-width:720px){
-  .timeline::before{left:8px;}
-  .timeline-item{margin:30px 0;}
-  .timeline-item:nth-child(odd) .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content{margin:0 0 0 30px;}
-  .timeline-item:nth-child(odd) .timeline-date,
-  .timeline-item:nth-child(even) .timeline-date{position:relative;left:0;margin-bottom:6px;text-align:left;}
-}
+.timeline-item.highlight {animation: pulse 0.8s ease-in-out;}
+@keyframes pulse {0% { transform: scale(1.05); }50% { transform: scale(1.1); }100% { transform: scale(1.05); }}
+@media(max-width:720px){.timeline::before{left:8px;}.timeline-item{margin:30px 0;}
+.timeline-item:nth-child(odd) .timeline-content,.timeline-item:nth-child(even) .timeline-content{margin:0 0 0 30px;}
+.timeline-item:nth-child(odd) .timeline-date,.timeline-item:nth-child(even) .timeline-date{position:relative;left:0;margin-bottom:6px;text-align:left;}}
 
-/* FOOTER */
 footer{background:#111;color:var(--muted);text-align:center;padding:56px;margin-top:80px;font-size:20px;}
 footer a{color:var(--accent);text-decoration:none;}
 </style>
@@ -151,17 +132,30 @@ footer a{color:var(--accent);text-decoration:none;}
   <h2 class="section-title"><span>Experience</span></h2>
   <div class="grid">
     <!-- Experience cards -->
-    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive (Healthcare/Sales)" data-img="cognizant.jpg" data-desc="● Responsible for data management, archiving and updating of purchase order, emails, and customer information\n● Serves as a technical resource to support sales of a specific medical product or solution\n● Administering and helping to manage Client’s Product support for the customers who call in the support center\n● Contact leads and prospective clients to deliver their sales pitches\nMar 2022 - Present">
+    <article class="card large" data-title="Cognizant Technology Solutions" data-role="Senior Process Executive (Healthcare/Sales)" data-img="cognizant.jpg" data-desc="Responsible for data management, archiving, and updating purchase orders, emails, and customer information.
+Served as technical resource to support sales of specific medical solutions.
+Administered and managed client product support for customers contacting support center.
+Contacted leads and prospective clients to deliver sales pitches.
+Mar 2022 - Present">
       <span class="role-badge">Senior Process Executive</span>
       <img class="media" src="cognizant.jpg" alt="Cognizant Office"/>
-      <div class="pad"><h3>Cognizant Technology Solutions</h3><p>Handled data management, client support, and sales assistance.</p></div>
+      <div class="pad"><h3>Cognizant Technology Solutions</h3><p>Data management, client support, and sales assistance.</p></div>
     </article>
-    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="concentrix.jpg" data-desc="● Experience in Technical Care Support with proven ability to troubleshoot software, hardware, and connectivity issues remotely\n● Handles calls escalated by L1 support, configuration issues, troubleshooting and software installations on both computer and handheld devices\n● Performs moderately advanced technological systems support, maintenance, and testing\nJun 2021 - Dec 2021">
+
+    <article class="card" data-title="Concentrix Philippines" data-role="L2 Technical Advisor" data-img="concentrix.jpg" data-desc="Handled technical care support with troubleshooting software, hardware, and connectivity issues remotely.
+Managed escalated L1 support calls and installations.
+Performed moderately advanced systems support, maintenance, and testing.
+Jun 2021 - Dec 2021">
       <span class="role-badge">L2 Technical Advisor</span>
       <img class="media" src="concentrix.jpg" alt="Concentrix Office"/>
       <div class="pad"><h3>Concentrix Philippines</h3><p>Advanced troubleshooting and technical support.</p></div>
     </article>
-    <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="247.jpg" data-desc="● Responsible for coaching and training agents on improving Customer Interaction and offering advisors guidance\n● Provides knowledge, resources and information to support agents\n● Performs moderately advanced technological systems support, maintenance, and testing\n● Responsible for data management, archiving and updating of purchase order, emails, and customer information\nSep 2018 - May 2021">
+
+    <article class="card" data-title="24/7.ai Philippines" data-role="Team Leader / SME" data-img="247.jpg" data-desc="Coached and trained agents to improve customer interaction.
+Provided resources and guidance to support agents.
+Performed advanced systems support, maintenance, and testing.
+Managed data, archiving, and updating records.
+Sep 2018 - May 2021">
       <span class="role-badge">Team Leader / SME</span>
       <img class="media" src="247.jpg" alt="24/7.ai Office"/>
       <div class="pad"><h3>24/7.ai Philippines</h3><p>Team leadership and support management.</p></div>
@@ -174,7 +168,9 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-overlay"></div>
   <h2 class="section-title"><span>Education</span></h2>
   <div class="grid">
-    <article class="card large" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="tup.jpeg" data-desc="● Electronics Engineering Technology (2015–2018)\n● Coursework in circuits, communications, and applied computing\nMay 2015 - Jul 2018">
+    <article class="card large" data-title="Technological University of the Philippines" data-role="Electronics Engineering Technology" data-img="tup.jpeg" data-desc="Electronics Engineering Technology (2015–2018).
+Coursework in circuits, communications, and applied computing.
+May 2015 - Jul 2018">
       <span class="role-badge">Electronics Eng'g Tech</span>
       <img class="media" src="tup.jpeg" alt="TUP University"/>
       <div class="pad"><h3>Technological University of the Philippines</h3><p>Electronics Engineering Technology · 2015–2018</p></div>
@@ -192,12 +188,12 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-overlay"></div>
   <h2 class="section-title"><span>Skills</span></h2>
   <div class="skills">
-    <div class="skill" data-title="Insurance Verification" data-role="Core Skill" data-img="cognizant.jpg" data-desc="● Eligibility checks\n● Coverage confirmation\n● Benefits coordination\n● Payer policy navigation">Insurance Verification</div>
-    <div class="skill" data-title="Prior Authorization" data-role="Core Skill" data-img="concentrix.jpg" data-desc="● Pre-cert submissions\n● Documentation collection\n● Status follow-ups\n● Denials prevention">Prior Authorization</div>
-    <div class="skill" data-title="Healthcare Communication" data-role="Core Skill" data-img="247.jpg" data-desc="● Empathetic patient interactions\n● Provider coordination\n● HIPAA-aware messaging">Healthcare Communication</div>
-    <div class="skill" data-title="Technical Support" data-role="Core Skill" data-img="concentrix.jpg" data-desc="● Remote troubleshooting\n● Escalation handling\n● Device/software diagnostics">Technical Support</div>
-    <div class="skill" data-title="Data Management" data-role="Core Skill" data-img="247.jpg" data-desc="● Data entry QA\n● Archiving standards\n● PO/email/customer record upkeep">Data Management</div>
-    <div class="skill" data-title="Team Leadership" data-role="Core Skill" data-img="247.jpg" data-desc="● Coaching\n● Huddles\n● KPI tracking\n● Continuous improvement culture">Team Leadership</div>
+    <div class="skill" data-title="Insurance Verification" data-role="Core Skill" data-img="cognizant.jpg" data-desc="Eligibility checks, coverage confirmation, benefits coordination, payer policy navigation">Insurance Verification</div>
+    <div class="skill" data-title="Prior Authorization" data-role="Core Skill" data-img="concentrix.jpg" data-desc="Pre-cert submissions, documentation collection, status follow-ups, denials prevention">Prior Authorization</div>
+    <div class="skill" data-title="Healthcare Communication" data-role="Core Skill" data-img="247.jpg" data-desc="Empathetic patient interactions, provider coordination, HIPAA-aware messaging">Healthcare Communication</div>
+    <div class="skill" data-title="Technical Support" data-role="Core Skill" data-img="concentrix.jpg" data-desc="Remote troubleshooting, escalation handling, device/software diagnostics">Technical Support</div>
+    <div class="skill" data-title="Data Management" data-role="Core Skill" data-img="247.jpg" data-desc="Data entry QA, archiving standards, PO/email/customer record upkeep">Data Management</div>
+    <div class="skill" data-title="Team Leadership" data-role="Core Skill" data-img="247.jpg" data-desc="Coaching, huddles, KPI tracking, continuous improvement culture">Team Leadership</div>
   </div>
 </section>
 
@@ -208,7 +204,6 @@ footer a{color:var(--accent);text-decoration:none;}
   <p>© 2025 Christian Kyle S. Hedriana</p>
 </footer>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-card" id="modalCard">
     <div class="modal-head"><img id="modalImg" src="" alt="" /></div>
@@ -221,7 +216,6 @@ footer a{color:var(--accent);text-decoration:none;}
 </div>
 
 <script>
-// MODAL
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
@@ -229,13 +223,12 @@ const modalRole = document.getElementById('modalRole');
 const modalDesc = document.getElementById('modalDesc');
 const timelineContainer = document.querySelector('#timeline .timeline');
 
-// CREATE TIMELINE DYNAMICALLY
-document.querySelectorAll('.card').forEach(card => {
+// Populate Timeline
+document.querySelectorAll('.card').forEach(card=>{
   const timelineItem = document.createElement('div');
   timelineItem.classList.add('timeline-item');
 
-  // Extract date from description
-  let dateMatch = card.dataset.desc.match(/([A-Za-z]{3,}\s\d{4})\s*-\s*([A-Za-z]{3,}\s\d{4}|PRESENT)/);
+  let dateMatch = card.dataset.desc.match(/([A-Za-z]{3,}\s\d{4})\s*-\s*([A-Za-z]{3,}\s\d{4}|Present)/i);
   let dateText = dateMatch ? dateMatch[0] : '';
 
   const dateDiv = document.createElement('div');
@@ -244,57 +237,68 @@ document.querySelectorAll('.card').forEach(card => {
 
   const contentDiv = document.createElement('div');
   contentDiv.classList.add('timeline-content');
+
   const h3 = document.createElement('h3'); h3.textContent = card.dataset.title;
   const h4 = document.createElement('h4'); h4.textContent = card.dataset.role;
   const ul = document.createElement('ul');
-  card.dataset.desc.split(/\n|●/).forEach(line => {
-    if(line.trim() === '' || line.includes(dateText)) return;
-    const li = document.createElement('li'); li.textContent = line.trim();
+
+  card.dataset.desc.split('\n').forEach(line=>{
+    line = line.replace(/●/g,'').trim();
+    if(line === '' || line.includes(dateText)) return;
+    const li = document.createElement('li'); li.textContent = line;
     ul.appendChild(li);
   });
+
   contentDiv.appendChild(h3); contentDiv.appendChild(h4); contentDiv.appendChild(ul);
   timelineItem.appendChild(dateDiv); timelineItem.appendChild(contentDiv);
   timelineContainer.appendChild(timelineItem);
 });
 
-// HIGHLIGHT TIMELINE ITEM
+// Modal & highlight timeline
+const timelineItems = document.querySelectorAll('.timeline-item');
 function highlightTimeline(title){
-  document.querySelectorAll('.timeline-item').forEach(item=>{
+  timelineItems.forEach(item=>{
     const itemTitle = item.querySelector('h3').textContent.trim().toLowerCase();
-    if(itemTitle === title.trim().toLowerCase()){
+    if(itemTitle===title.trim().toLowerCase()){
       item.style.transform='scale(1.05)';
       item.style.boxShadow='0 20px 60px rgba(0,255,200,.6)';
-      item.scrollIntoView({behavior:'smooth', block:'center'});
+      item.style.borderLeft='4px solid var(--accent-2)';
+      item.scrollIntoView({behavior:'smooth',block:'center'});
       item.classList.add('highlight');
-    } else {
+    }else{
       item.style.transform='scale(1)';
       item.style.boxShadow='var(--shadow)';
+      item.style.borderLeft='none';
       item.classList.remove('highlight');
     }
   });
 }
 
-// MODAL CLICK EVENTS
 document.querySelectorAll('.card, .skill').forEach(el=>{
   el.addEventListener('click', ()=>{
-    highlightTimeline(el.dataset.title || '');
-    modalImg.src = el.dataset.img || '';
-    modalTitle.textContent = el.dataset.title || '';
-    modalRole.textContent = el.dataset.role || '';
+    highlightTimeline(el.dataset.title||'');
+    modalImg.src = el.dataset.img||'';
+    modalTitle.textContent = el.dataset.title||'';
+    modalRole.textContent = el.dataset.role||'';
     modalDesc.innerHTML='';
     if(el.dataset.desc){
-      el.dataset.desc.split(/\n|●/).forEach(line=>{
-        if(line.trim()==='') return;
-        const li = document.createElement('li'); li.textContent=line.trim();
+      el.dataset.desc.split('\n').forEach(line=>{
+        line = line.replace(/●/g,'').trim();
+        if(line==='') return;
+        const li = document.createElement('li'); li.textContent=line;
         modalDesc.appendChild(li);
       });
     }
-    modal.classList.add('open'); document.body.style.overflow='hidden';
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
   });
 });
 
 modal.addEventListener('click', e=>{
-  if(e.target===modal){ modal.classList.remove('open'); document.body.style.overflow=''; }
+  if(e.target===modal){
+    modal.classList.remove('open');
+    document.body.style.overflow='';
+  }
 });
 </script>
 
